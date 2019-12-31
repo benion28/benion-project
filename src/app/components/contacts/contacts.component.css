@@ -1,0 +1,42 @@
+.mat-card {
+    width: 600px;
+    margin: auto;
+}
+
+.mat-card .full-width {
+    width: 100%;
+}
+
+.mat-card .mat-card-actions {
+    display: block;
+    text-align: right;
+}
+
+.order-actions {
+    margin-top: 20px;
+}
+
+.order-conainer {
+    overflow: auto;
+    height: 400px;
+}
+
+.example-full-width {
+    width: 40%;
+}
+
+.add-bottom-padding .todo-button{
+    margin-left: 40%;
+}
+
+.normal-form {
+    align-items: center;
+}
+
+.is-completed {
+    text-decoration: line-through;
+}
+
+.hide {
+    display: none;
+}

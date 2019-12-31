@@ -1,0 +1,31 @@
+.mat-card-image {
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    align-items: center;
+  }
+
+  mat-card {
+    display: table;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 15%;
+  }
+
+  mat-card-actions {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 60%; 
+  }
+
+  .menu-span {
+    align-items: center;
+    text-align: center;
+    font-size: 13pt;
+    position: absolute;
+    top: 12%;
+    left: 65%;
+  }

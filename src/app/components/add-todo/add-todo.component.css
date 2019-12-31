@@ -1,0 +1,25 @@
+.button {
+    display: inline-block;
+    padding: 7px 20px;
+    border: none;
+    background: #555;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #666;
+}
+
+.form {
+    display: flex;
+}
+
+.form input[type="text"] {
+    flex: 10;
+    padding: 5px;
+}
+
+.form input[type="submit"] {
+    flex: 2;
+}

@@ -1,0 +1,304 @@
+<mat-tab-group>
+    <mat-tab label="Benion Animations">
+      <input
+        #itemInput
+        class="form-control"
+        (keyup.enter)="addItems(itemInput)"
+      />
+  
+      <div *ngIf="todoLists" class="list-group">
+        <button
+          type="button"
+          @fade
+          *ngFor="let todoList of todoLists"
+          (click)="removeItems(todoList)"
+          class="list-group-item"
+        >
+          {{ todoList }}
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Benion Forms">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input
+            ngModel
+            name="firstname"
+            #firstname="ngModel"
+            matInput
+            placeholder="First Name"
+            value=""
+            required
+          />
+          <mat-error *ngIf="firstname.invalid && firstname.errors.required">
+            This First Name Field Is Required..
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <input
+            ngModel
+            name="lastname"
+            #lastname="ngModel"
+            matInput
+            placeholder="Last Name"
+            value=""
+            required
+          />
+          <mat-error *ngIf="lastname.invalid && lastname.errors.required">
+            This Last Name Field Is Required..
+          </mat-error>
+        </mat-form-field>
+        <p></p>
+  
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="About Yourself"></textarea>
+        </mat-form-field>
+      </form>
+      <p></p>
+  
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input
+            ngModel
+            name="email"
+            #email="ngModel"
+            matInput
+            placeholder="Select Mail"
+            value=""
+            required
+          />
+          <mat-hint>Select A Unique Name For Email. </mat-hint>
+          <span matSuffix>@domain.com</span>
+          <span matPrefix>admin.</span>
+          <mat-error *ngIf="email.invalid && email.errors.required">
+            This Mail Field Is Required..
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <p></p>
+  
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input
+            ngModel
+            name="choosepassword"
+            #choosepassword="ngModel"
+            matInput
+            placeholder="Choose Password"
+            type="password"
+            value=""
+            required
+          />
+          <mat-hint>Password Should Be More Than 8 Characters </mat-hint>
+          <mat-error
+            *ngIf="choosepassword.invalid && choosepassword.errors.required"
+          >
+            Password Is Required..
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <input
+            ngModel
+            name="confirmpassword"
+            #confirmpassword="ngModel"
+            matInput
+            placeholder="Confirm Password"
+            type="password"
+            value=""
+            required
+          />
+          <mat-hint>Passwords Should Be Thesame </mat-hint>
+          <mat-error
+            *ngIf="confirmpassword.invalid && confirmpassword.errors.required"
+          >
+            Confirmation Required..
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <p></p>
+  
+      <mat-radio-group value="0">
+        <mat-radio-button value="1">Male</mat-radio-button>
+        <mat-radio-button value="0">Female</mat-radio-button>
+      </mat-radio-group>
+      <p></p>
+  
+      <mat-form-field>
+        <mat-label>Select Color</mat-label>
+        <mat-select [value]="" required>
+          <mat-option *ngFor="let color of colors" [value]="color.id">
+            {{ color.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p></p>
+  
+      <mat-form-field>
+        <input
+          ngModel
+          name="choosebirthday"
+          #choosebirthday="ngModel"
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Choose Your Birth Date"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker color="warn"></mat-datepicker>
+        <mat-hint>Password Should Be More Than 8 Characters </mat-hint>
+        <mat-error
+          *ngIf="choosebirthday.invalid && choosebirthday.errors.required"
+        >
+          Birth Date Is Required..
+        </mat-error>
+      </mat-form-field>
+      <p></p>
+  
+      <mat-checkbox
+        value=""
+        #showDetails
+        [checked]="isChecked"
+        (change)="onChange($event)"
+      >
+        Accept Terms And Condition..??
+      </mat-checkbox>
+      <div *ngIf="showDetails.checked">
+        Thanks For Accepting...
+      </div>
+      <p></p>
+  
+      <button mat-button>Save</button>
+    </mat-tab>
+    <mat-tab label="Benion Directives">
+      <p></p>
+      <div *ngIf="courses.length > 0; then courseLists; else noCourses"></div>
+      <ng-template #courseLists>
+        List Of Courses
+      </ng-template>
+      <ng-template #noCourses>
+        No Courses Yet
+      </ng-template>
+      <div hidden>
+        This Is Hidden
+      </div>
+  
+      <div [hidden]="courses.length > 0">
+        Courses Are Unavailable
+      </div>
+      <div [hidden]="courses.length == 0">
+        Courses Are Available
+      </div>
+  
+      <ul class="nav nav-pills">
+        <li [class.active]="viewMode == 'map'">
+          <a (click)="viewMode = 'map'">Map View</a>
+        </li>
+        <li [class.active]="viewMode == 'list'">
+          <a (click)="viewMode = 'list'">List View</a>
+        </li>
+      </ul>
+  
+      <div [ngSwitch]="viewMode">
+        <div *ngSwitchCase="'map'">Map View Content</div>
+        <div *ngSwitchCase="'list'">List View Content</div>
+        <div *ngSwitchDefault>Otherwise</div>
+      </div>
+  
+      <ul>
+        <li *ngFor="let course of courses">
+          {{ course.name }}
+          <button class="btn btn-secondary m-2" (click)="onRemove(course)">
+            Remove Course
+          </button>
+          <button class="btn btn-secondary m-2" (click)="onChanges(course)">
+            Change Course
+          </button>
+        </li>
+      </ul>
+      <button class="btn btn-primary m-2" (click)="onAdd()">Add Course</button>
+    </mat-tab>
+    <mat-tab label="Benion Courses">
+      <h2>{{ courseTitle }}</h2>
+      <ul>
+        <li *ngFor="let course of mscCourses">
+          {{ course }}
+        </li>
+      </ul>
+      <p></p>
+      <h2>{{ label }}</h2>
+      <ul>
+        <li *ngFor="let course of fppCourses">
+          {{ course }}
+        </li>
+      </ul>
+    </mat-tab>
+    <mat-tab label="Benion Form">
+      <form>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            required
+            minlength="3"
+            maxlength="10"
+            appForbiddenName="Iorver"
+            ngModel
+            name="firstName"
+            #firstName="ngModel"
+            (change)="getName(firstName)"
+            id="firstName"
+            type="text"
+            class="form-control"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)"
+          >
+            <div *ngIf="firstName.errors.required">First Name Is Required.</div>
+            <div *ngIf="firstName.errors.minlength">
+              First Name Should Be A Minimum Of
+              {{ firstName.errors.minlength.requiredLength }} Characters And Not
+              More Than 10 Characters.
+            </div>
+            <div *ngIf="firstName.errors.forbiddenName">
+              First Name Cannot Be "Iorver".
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea
+            ngModel
+            required
+            minlength="6"
+            maxlength="10"
+            pattern="Benion"
+            name="comment"
+            #comment="ngModel"
+            (change)="getComment(comment)"
+            id="comment"
+            cols="30"
+            rows="10"
+            class="form-control"
+          ></textarea>
+          <div
+            class="alert alert-danger"
+            *ngIf="comment.touched && !comment.valid"
+          >
+            <div *ngIf="comment.errors.required">Comment Field Is Required.</div>
+            <div *ngIf="comment.errors.minlength">
+              Comment Should Be A Minimum Of
+              {{ comment.errors.minlength.requiredLength }} Characters And Not
+              More Than 10 Characters.
+            </div>
+            <div *ngIf="comment.errors.pattern">
+              Comment Doesn't Match The Pattern.
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary">Submit</button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+  

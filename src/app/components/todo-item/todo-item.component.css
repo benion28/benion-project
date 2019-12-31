@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+}
+
+.container {
+    padding: 0 1rem;
+}
+
+.delete {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    border-radius: 50%;
+    float: right;
+    cursor: pointer;
+}
+
+.check {
+    cursor: pointer;
+}
+
+.todo {
+    background: #18054b;
+    padding: 10px;
+    border-bottom: 1px #ccc dotted;
+}
+
+.is-complete {
+    text-decoration: line-through;
+}

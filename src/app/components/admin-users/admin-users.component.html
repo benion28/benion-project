@@ -19,10 +19,22 @@
             <mat-icon>close</mat-icon>
         </button> 
     </mat-form-field>
+    <div class="select-actions">
+        <button mat-button color="accent">DELETE</button>
+        <button mat-button color="accent">SEND</button>
+    </div>
 </div>
 
 <div class="mat-elevation-z8">
     <mat-table [dataSource]="listData" matSort multiTemplateDataRows>
+        <ng-container matColumnDef="check">
+            <mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="selectAll()"></mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <mat-checkbox [checked]="element.isWorking" (change)="onCheck(element)"></mat-checkbox>
+            </mat-cell>
+        </ng-container>
         <ng-container matColumnDef="$key">
             <mat-header-cell *matHeaderCellDef mat-sort-header>#ID</mat-header-cell>
             <mat-cell *matCellDef="let element">{{ element.$key }}</mat-cell>

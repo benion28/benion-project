@@ -68,5 +68,19 @@ export class SportsService {
     this.sportsForm.setValue(news);
   }
 
+  updateSportsView(news) {
+    this.sportsList.update(news.$key,
+      {
+        isView: true
+      });
+  }
+
+  updateSportsClose(news) {
+    this.sportsList.update(news.$key,
+      {
+        isView: false
+      });
+  }
+
 
 }

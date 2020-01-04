@@ -68,4 +68,19 @@ export class TopStoriesService {
   populateTopStoriesForm(news) {
     this.topStoriesForm.setValue(news);
   }
+
+  updateTopStoriesView(news) {
+    this.topStoriesList.update(news.$key,
+      {
+        isView: true
+      });
+  }
+
+  updateTopStoriesClose(news) {
+    this.topStoriesList.update(news.$key,
+      {
+        isView: false
+      });
+  }
+
 }

@@ -23,6 +23,7 @@ export class AdminUsersComponent implements OnInit {
 
   listData: MatTableDataSource<any>;
   displayedColumns: string[] = [
+    'check',
     '$key',
     'firstName',
     'lastName',
@@ -64,6 +65,10 @@ export class AdminUsersComponent implements OnInit {
         };
       }
     );
+
+    this.array.forEach(user => {
+      user.isWorking = false;
+    });
   }
 
   onSearchClear() {
@@ -117,5 +122,14 @@ export class AdminUsersComponent implements OnInit {
   //   });
   // }
 
+  selectAll() {
+    this.array.forEach(user => {
+      user.isWorking = !user.isWorking;
+    });
+  }
+
+  onCheck(user) {
+    user.isWorking = !user.isWorking;
+  }
 
 }

@@ -67,4 +67,18 @@ export class EducationService {
   populateEducationForm(news) {
     this.educationForm.setValue(news);
   }
+
+  updateEducationView(news) {
+    this.educationList.update(news.$key,
+      {
+        isView: true
+      });
+  }
+
+  updateEducationClose(news) {
+    this.educationList.update(news.$key,
+      {
+        isView: false
+      });
+  }
 }

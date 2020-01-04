@@ -96,7 +96,6 @@ export class UsersComponent implements OnInit {
     // }
 
     this.dialogService.openConfirmDialog('Are You Sure You Want To Delete This Record ?').afterClosed().subscribe(response => {
-      console.log(response);
       if (response) {
         this.userService.deleteUser($key);
         this.notificationService.warn(' !! It Has Been Deleted Successfully !!! ');

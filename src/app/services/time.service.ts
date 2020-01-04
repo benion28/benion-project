@@ -26,7 +26,6 @@ export class TimeService {
   getMonth = this.date.getMonth();
 
   months = [
-    '',
     'January',
     'February',
     'March',

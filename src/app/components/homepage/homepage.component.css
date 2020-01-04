@@ -3,3 +3,12 @@ ng-marquee {
     background-color: #091a5d;
     display: flow-root;
 }
+
+.mat-card-content {
+    margin-top: 3%;
+}
+
+.mat-card-content .news-details {
+    position: absolute;
+    top: 20%;
+}

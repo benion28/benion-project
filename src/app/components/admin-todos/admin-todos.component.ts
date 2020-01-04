@@ -63,7 +63,6 @@ export class AdminTodosComponent implements OnInit {
 
     onDelete($key) {
       this.dialogService.openConfirmDialog('Are You Sure You Want To Delete This Record ?').afterClosed().subscribe(response => {
-        console.log(response);
         if (response) {
           this.contactsService.deleteTodo($key);
           this.notificationsService.warn(' !! It Has Been Deleted Successfully !!! ');

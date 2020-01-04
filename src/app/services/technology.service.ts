@@ -67,4 +67,19 @@ export class TechnologyService {
   populateTechnologyForm(news) {
     this.technologyForm.setValue(news);
   }
+
+  updateTechnologyView(news) {
+    this.technologyList.update(news.$key,
+      {
+        isView: true
+      });
+  }
+
+  updateTechnologyClose(news) {
+    this.technologyList.update(news.$key,
+      {
+        isView: false
+      });
+  }
+
 }

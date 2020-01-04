@@ -117,4 +117,17 @@ arrays = [];
     this.userForm.setValue(_.omit(user, 'departmentName'));
   }
 
+  updateCheck(user) {
+    if (user.isWorking) {
+      this.userList.update(user.$key,
+        {
+          isWorking: false
+        });
+    } else {
+      this.userList.update(user.$key,
+        {
+          isWorking: true
+        });
+    }
+  }
 }

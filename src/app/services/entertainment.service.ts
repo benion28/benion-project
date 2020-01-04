@@ -68,4 +68,18 @@ export class EntertainmentService {
   populateEntertainmentForm(news) {
     this.entertainmentForm.setValue(news);
   }
+
+  updateEntertainmentView(news) {
+    this.entertainmentList.update(news.$key,
+      {
+        isView: true
+      });
+  }
+
+  updateEntertainmentClose(news) {
+    this.entertainmentList.update(news.$key,
+      {
+        isView: false
+      });
+  }
 }

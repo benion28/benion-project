@@ -36,7 +36,7 @@
                 <span matLine>{{ news.title }}</span>
                 <mat-icon matTooltip="View" matTooltipClass="example-tooltip" mat-list-item (click)="onViewEntertainmentNews(news)">menu_book</mat-icon>
               </div>
-              <div *ngIf="news.isView === true">
+              <div *ngIf="news.isView === true" class="news-details">
                 <h5>{{ news.details }}</h5>
                 <mat-icon class="news-close" matTooltip="Close" matTooltipClass="example-tooltip" (click)="onCloseEntertainmentNews(news)">close</mat-icon>
               </div>
@@ -58,7 +58,7 @@
                 <span matLine>{{ news.title }}</span>
                 <mat-icon matTooltip="View" matTooltipClass="example-tooltip" mat-list-item (click)="onViewSportsNews(news)">menu_book</mat-icon>
               </div>
-              <div *ngIf="news.isView === true">
+              <div *ngIf="news.isView === true" class="news-details">
                 <h5>{{ news.details }}</h5>
                 <mat-icon class="news-close" matTooltip="Close" matTooltipClass="example-tooltip" (click)="onCloseSportsNews(news)">close</mat-icon>
               </div>
@@ -80,7 +80,7 @@
                 <span matLine>{{ news.title }}</span>
                 <mat-icon matTooltip="View" matTooltipClass="example-tooltip" mat-list-item (click)="onViewEducationNews(news)">menu_book</mat-icon>
               </div>
-              <div *ngIf="news.isView === true">
+              <div *ngIf="news.isView === true" class="news-details">
                 <h5>{{ news.details }}</h5>
                 <mat-icon class="news-close" matTooltip="Close" matTooltipClass="example-tooltip" (click)="onCloseEducationNews(news)">close</mat-icon>
               </div>
@@ -102,7 +102,7 @@
                 <span matLine>{{ news.title }}</span>
                 <mat-icon matTooltip="View" matTooltipClass="example-tooltip" mat-list-item (click)="onViewTechnologyNews(news)">menu_book</mat-icon>
               </div>
-              <div *ngIf="news.isView === true">
+              <div *ngIf="news.isView === true" class="news-details">
                 <h5>{{ news.details }}</h5>
                 <mat-icon class="news-close" matTooltip="Close" matTooltipClass="example-tooltip" (click)="onCloseTechnologyNews(news)">close</mat-icon>
               </div>

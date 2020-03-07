@@ -56,7 +56,8 @@ export class EducationService {
     this.educationList.update(news.$key,
       {
         title: news.title,
-        details: news.details
+        details: news.details,
+        isView: false
       });
   }
 
@@ -68,17 +69,4 @@ export class EducationService {
     this.educationForm.setValue(news);
   }
 
-  updateEducationView(news) {
-    this.educationList.update(news.$key,
-      {
-        isView: true
-      });
-  }
-
-  updateEducationClose(news) {
-    this.educationList.update(news.$key,
-      {
-        isView: false
-      });
-  }
 }

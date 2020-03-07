@@ -102,10 +102,16 @@ mat-card-title {
   left: 40%;
 }
 
-.bottom-toolbar .card-bottom-actions {
+.bottom-toolbar .card-bottom-actions .first-div {
   position: absolute;
   left: 30%;
   top: 10%;
+}
+
+.bottom-toolbar .card-bottom-actions .second-div {
+  position: absolute;
+  left: 85%;
+  top: 15%;
 }
 
 .bottom-toolbar .center {

@@ -57,7 +57,8 @@ export class TopStoriesService {
     this.topStoriesList.update(news.$key,
       {
         title: news.title,
-        details: news.details
+        details: news.details,
+        isView: false
       });
   }
 
@@ -67,20 +68,6 @@ export class TopStoriesService {
 
   populateTopStoriesForm(news) {
     this.topStoriesForm.setValue(news);
-  }
-
-  updateTopStoriesView(news) {
-    this.topStoriesList.update(news.$key,
-      {
-        isView: true
-      });
-  }
-
-  updateTopStoriesClose(news) {
-    this.topStoriesList.update(news.$key,
-      {
-        isView: false
-      });
   }
 
 }

@@ -22,6 +22,7 @@
     <div class="select-actions">
         <button mat-button color="accent">DELETE</button>
         <button mat-button color="accent">SEND</button>
+        <button mat-button color="accent" (click)="reloadChecks()">RELOAD</button>
     </div>
 </div>
 
@@ -29,7 +30,7 @@
     <mat-table [dataSource]="listData" matSort multiTemplateDataRows>
         <ng-container matColumnDef="check">
             <mat-header-cell *matHeaderCellDef>
-                <mat-checkbox (change)="selectAll()"></mat-checkbox>
+                <mat-checkbox [checked]="checkUser" (change)="selectAll()"></mat-checkbox>
             </mat-header-cell>
             <mat-cell *matCellDef="let element">
                 <mat-checkbox [checked]="element.isWorking" (change)="onCheck(element)"></mat-checkbox>

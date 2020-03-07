@@ -57,7 +57,8 @@ export class EntertainmentService {
     this.entertainmentList.update(news.$key,
       {
         title: news.title,
-        details: news.details
+        details: news.details,
+        isView: false
       });
   }
 
@@ -69,17 +70,4 @@ export class EntertainmentService {
     this.entertainmentForm.setValue(news);
   }
 
-  updateEntertainmentView(news) {
-    this.entertainmentList.update(news.$key,
-      {
-        isView: true
-      });
-  }
-
-  updateEntertainmentClose(news) {
-    this.entertainmentList.update(news.$key,
-      {
-        isView: false
-      });
-  }
 }

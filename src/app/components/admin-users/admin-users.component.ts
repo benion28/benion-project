@@ -13,6 +13,8 @@ import { UserService } from './../../services/user.service';
 })
 export class AdminUsersComponent implements OnInit {
 
+  checkUser = false;
+
   constructor(
     private userService: UserService,
     private departmentService: DepartmentsService,
@@ -99,13 +101,7 @@ export class AdminUsersComponent implements OnInit {
   }
 
   onDelete($key) {
-    // if (confirm('Are You Sure You Want To Delete This Record ?')) {
-    //   this.userService.deleteUser($key);
-    //   this.notificationService.warn(' !! It Has Been Deleted Successfully !!! ');
-    // }
-
     this.dialogService.openConfirmDialog('Are You Sure You Want To Delete This Record ?').afterClosed().subscribe(response => {
-      console.log(response);
       if (response) {
         this.userService.deleteUser($key);
         this.notificationService.warn(' !! It Has Been Deleted Successfully !!! ');
@@ -113,23 +109,31 @@ export class AdminUsersComponent implements OnInit {
     });
   }
 
-  // onTest() {
-  //   this.dialogService.openConfirmDialog('Are You Sure You Want To Delete This Record ?').afterClosed().subscribe(response => {
-  //     console.log(response);
-  //     if (response) {
-  //       this.notificationService.warn(' !! It Has Been Deleted Successfully !!! ');
-  //     }
-  //   });
-  // }
-
   selectAll() {
-    this.array.forEach(user => {
-      user.isWorking = !user.isWorking;
-    });
+    if (!this.checkUser) {
+      this.array.forEach(user => {
+        user.isWorking = true;
+      });
+      this.checkUser = true;
+    } else {
+      this.array.forEach(user => {
+        user.isWorking = false;
+      });
+      this.checkUser = false;
+    }
   }
 
   onCheck(user) {
-    user.isWorking = !user.isWorking;
+    this.array.filter(item => {
+      item.$key = user.$key;
+      item.isWorking = !item.isWorking;
+    });
+  }
+
+  reloadChecks() {
+    this.array.forEach(user => {
+      user.isWorking = false;
+    });
   }
 
 }

@@ -56,7 +56,8 @@ export class TechnologyService {
     this.technologyList.update(news.$key,
       {
         title: news.title,
-        details: news.details
+        details: news.details,
+        isView: false
       });
   }
 
@@ -66,20 +67,6 @@ export class TechnologyService {
 
   populateTechnologyForm(news) {
     this.technologyForm.setValue(news);
-  }
-
-  updateTechnologyView(news) {
-    this.technologyList.update(news.$key,
-      {
-        isView: true
-      });
-  }
-
-  updateTechnologyClose(news) {
-    this.technologyList.update(news.$key,
-      {
-        isView: false
-      });
   }
 
 }
